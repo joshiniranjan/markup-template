@@ -3,16 +3,24 @@ $gray: #999;
 $white: #fff;
 $black: #000;
 
+$orange: #fab702;
+$dark-black: #252c3a;
+$blue-400: #6d7396;
+
 $animation-speed: .3s;
 $animation-timing-function: linear;
 
 
 $body-bg: $white;
+$text-color: $black;
+$link-color: $blue-400;
+
 
 $base-min-width: 320px;
 
 // This is the default html and body font-size for the base rem value.
-$font-size-base: 16px;
+// $font-size-base: 16px;
+$font-size-base: 1rem;
 $line-height-base: 1.63;
 
 
@@ -33,7 +41,73 @@ $btn-border-radius-base: 0;
 $btn-font-weight: 700;
 
 //grid
-$grid-gutter-width: 28px;
+$grid-gutter-width: 38px;
+
+$colors: ();
+
+$colors: map-merge((
+	"orange": $orange,
+	"blue": $blue-400,
+	"darkblack": $dark-black
+	), $colors);
+
+@each $color, $value in $colors {
+	.text-#{$color} {
+		color: $value !important;
+	}
+}
+
+@each $color, $value in $colors {
+	.bg-#{$color} {
+		backgroung: $value !important;
+	}
+}
+
+@each $color, $value in $colors {
+	.text-hover-#{$color} {
+		&:hover {
+			text-decoration: none !important;
+			color: $value !important;
+		}
+	}
+}
+
+$primary: $orange;
+$secondary: $blue-400;
+
+$theme-colors: ();
+
+$theme-colors: map-merge((
+	"primary": $primary,
+	"secondary": $secondary
+	), $theme-colors);
+
+$grid-breakpoints : ();
+
+$grid-breakpoints : map-merge( (
+	xs: 0,
+	sm: 768px,
+	md: 992px,
+	lg: 1200px
+	), $grid-breakpoints);
+
+$spacers: ();
+$spacers: map-merge((
+	0:0,
+	0_1: 0.1rem,
+	0_2: 0.2rem,
+	0_3: 0.3rem,
+	0_4: 0.4rem,
+	0_5: 0.5rem,
+	0_6:0.6rem,
+	0_7: 0.7rem,
+	0_8: 0.8rem,
+	0_9: 0.9rem,
+	10: 1rem,
+	15: 1.5rem
+	), $spacers);
+
+$rem-base: 10px;
 
 //container
-$container-lg: 1106px;
+// $container-lg: 1106px;
